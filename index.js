@@ -54,6 +54,11 @@ const requestHandler = (request, response) => {
     response.setHeader('Access-Control-Request-Method', '*');
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     response.setHeader('Access-Control-Allow-Headers', '*');
+    if (response.method === 'OPTIONS' ) {
+        response.writeHead(200);
+        response.end();
+        return;
+    }
     if (request.url === '/messages' && request.method === 'POST') {
 
         if (genRandomBool()) {
