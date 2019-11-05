@@ -95,7 +95,7 @@ const requestHandler = (request, response) => {
     }
 
     // response.statusCode = 400;
-    // response.end();
+    response.end();
 };
 
 const server = http.createServer(requestHandler);
