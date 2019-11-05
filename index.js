@@ -50,7 +50,10 @@ function sendMessages() {
 
 const requestHandler = (request, response) => {
     response.setHeader('Content-type', 'json');
-    response.setHeader('Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Request-Method', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+    response.setHeader('Access-Control-Allow-Headers', '*');
     if (request.url === '/messages' && request.method === 'POST') {
 
         if (genRandomBool()) {
