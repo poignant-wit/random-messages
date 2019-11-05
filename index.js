@@ -94,8 +94,8 @@ const requestHandler = (request, response) => {
         }, genRandomTimeInterval());
     }
 
-    response.statusCode = 400;
-    response.end();
+    // response.statusCode = 400;
+    // response.end();
 };
 
 const server = http.createServer(requestHandler);
