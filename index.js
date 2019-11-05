@@ -2,9 +2,10 @@ const http = require('http');
 const request = require('request');
 const WebSocket = require('ws');
 const uuid = require('uuid');
-const port = 3000;
+const port = 3030;
+const wsPort = 3031;
 
-const wss = new WebSocket.Server({ port: port });
+const wss = new WebSocket.Server({ port: wsPort });
 
 function broadcast(data) {
     wss.clients.forEach(client => client.send(JSON.stringify(data)))
@@ -94,7 +95,8 @@ server.listen(port, (err) => {
     if (err) {
         return console.log('something bad happened', err)
     }
-    console.log(`server is listening on ${port}`)
+    console.log(`http server is listening on ${port}...`);
+    console.log(`ws server is listening on ${wsPort}...`);
 });
 
 sendMessages();
